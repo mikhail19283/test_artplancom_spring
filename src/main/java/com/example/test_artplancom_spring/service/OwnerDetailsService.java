@@ -33,14 +33,13 @@ public class OwnerDetailsService implements UserDetailsService {
         return new User(owner.getName(), owner.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("user"));
     }
 
-    public HttpStatus registrationOwner(OwnerDto ownerDto) {
+    public void registrationOwner(OwnerDto ownerDto) {
         Owner owner = new Owner(ownerDto.getName(), passwordEncoder.encode(ownerDto.getPassword()));
         Optional<Owner> ownerFromDb = ownerRepository.findByName(ownerDto.getName());
         if (ownerFromDb.isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Пользователь с таким именем уже существует");
         }
         ownerRepository.save(owner);
-        return HttpStatus.CREATED;
     }
 
 }

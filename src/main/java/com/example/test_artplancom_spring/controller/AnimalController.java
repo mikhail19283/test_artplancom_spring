@@ -5,6 +5,7 @@ import com.example.test_artplancom_spring.entity.Animal;
 import com.example.test_artplancom_spring.service.AnimalService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,13 +37,20 @@ public class AnimalController {
     }
 
     @PostMapping
-    public HttpStatus addAnimalByOwnerId(@RequestBody AnimalDto animalDto){
-        return animalService.addAnimalByOwnerId(animalDto);
+    public ResponseEntity<Void> addAnimalByOwnerId(@RequestBody AnimalDto animalDto){
+        animalService.addAnimalByOwnerId(animalDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}")
-    public HttpStatus putAnimalById(@PathVariable Integer id, @RequestBody AnimalDto animalDto){
-        return animalService.putAnimalById(id, animalDto);
+    public ResponseEntity<Void> putAnimalById(@PathVariable Integer id, @RequestBody AnimalDto animalDto){
+        animalService.putAnimalById(id, animalDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteById(@PathVariable Integer id){
+        animalService.deleteById(id);
     }
 
 }

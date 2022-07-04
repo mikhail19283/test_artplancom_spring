@@ -4,6 +4,7 @@ import com.example.test_artplancom_spring.dto.OwnerDto;
 import com.example.test_artplancom_spring.service.OwnerDetailsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,8 +18,9 @@ public class AuthController {
     }
 
     @PostMapping(value = "/registration")
-    public HttpStatus registration(@RequestBody OwnerDto ownerDto){
-        return ownerService.registrationOwner(ownerDto);
+    public ResponseEntity<Void> registration(@RequestBody OwnerDto ownerDto){
+        ownerService.registrationOwner(ownerDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

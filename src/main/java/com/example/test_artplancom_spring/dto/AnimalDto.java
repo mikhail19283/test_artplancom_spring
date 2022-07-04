@@ -2,9 +2,9 @@ package com.example.test_artplancom_spring.dto;
 
 public class AnimalDto {
 
-    private String birthday;
-    private String sex;
-    private String alias;
+    private final String birthday;
+    private final String sex;
+    private final String alias;
 
     public AnimalDto(String birthday, String sex, String alias) {
         this.birthday = birthday;

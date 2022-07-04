@@ -1,4 +1,4 @@
-package com.example.test_artplancom_spring;
+package com.example.test_artplancom_spring.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

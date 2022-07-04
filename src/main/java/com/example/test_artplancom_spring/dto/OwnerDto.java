@@ -2,8 +2,8 @@ package com.example.test_artplancom_spring.dto;
 
 public class OwnerDto {
 
-    private String name;
-    private String password;
+    private final String name;
+    private final String password;
 
     public OwnerDto(String name, String password) {
         this.name = name;
