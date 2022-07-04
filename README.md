@@ -13,3 +13,5 @@ GET "/api/v1/animals/{id}" (Integer id) -> питомец с данным id
 GET "/api/v1/animals/my" List с питомцами по ключу id
 
 POST "/api/v1/animals/" добавление питомца в базу данных (id владельца исходя из авторизированных данных)
+
+PUT "/api/v1/animals/{id}" изменение данных по id питомца
