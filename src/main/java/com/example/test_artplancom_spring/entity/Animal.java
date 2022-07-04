@@ -38,4 +38,20 @@ public class Animal {
     public String getAlias() {
         return alias;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 }

@@ -40,4 +40,9 @@ public class AnimalController {
         return animalService.addAnimalByOwnerId(animalDto);
     }
 
+    @PutMapping(value = "/{id}")
+    public HttpStatus putAnimalById(@PathVariable Integer id, @RequestBody AnimalDto animalDto){
+        return animalService.putAnimalById(id, animalDto);
+    }
+
 }

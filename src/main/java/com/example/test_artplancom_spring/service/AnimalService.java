@@ -41,8 +41,18 @@ public class AnimalService {
         return HttpStatus.ACCEPTED;
     }
 
+    public HttpStatus putAnimalById(Integer id, AnimalDto animalDto){
+        Animal animal = animalRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Животного с таким id не существует"));
+        animal.setAlias(animalDto.getAlias());
+        animal.setBirthday(animalDto.getBirthday());
+        animal.setSex(animalDto.getSex());
+        animalRepository.save(animal);
+        return HttpStatus.CONTINUE;
+    }
+
     public Integer getIdByName(){
         String owner = SecurityContextHolder.getContext().getAuthentication().getName();
         return ownerRepository.findByName(owner).get().getId();
     }
+
 }
