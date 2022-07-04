@@ -1,0 +1,59 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: mikhail19283
+      changes:
+        - createTable:
+            tableName: owners
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: animals
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: birthday
+                  type: varchar(50)
+              - column:
+                  name: sex
+                  type: varchar(50)
+              - column:
+                  name: alias
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+              - column:
+                  name: id_owner
+                  type: int
+
+        - addForeignKeyConstraint:
+            baseColumnNames: id_owner
+            baseTableName: animals
+            constraintName: fk_animals_id_owner
+            referencedColumnNames: id
+            referencedTableName: owners
