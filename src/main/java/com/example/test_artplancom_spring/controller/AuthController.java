@@ -1,7 +1,7 @@
 package com.example.test_artplancom_spring.controller;
 
 import com.example.test_artplancom_spring.dto.OwnerDto;
-import com.example.test_artplancom_spring.service.OwnerDetailsService;
+import com.example.test_artplancom_spring.service.OwnerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/api/v1/auth", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AuthController {
 
-    private final OwnerDetailsService ownerService;
+    private final OwnerService ownerService;
 
-    public AuthController(OwnerDetailsService ownerService) {
+    public AuthController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
 
