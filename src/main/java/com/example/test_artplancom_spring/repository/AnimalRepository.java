@@ -16,4 +16,5 @@ public interface AnimalRepository extends CrudRepository<Animal, Integer> {
     List<Animal> findByIdOwner(Integer id);
 
     Optional<Animal> findByAlias(String alias);
+
 }
